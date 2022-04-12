@@ -1,0 +1,109 @@
+
+<head>
+
+<meta charset="ISO-8859-1">
+<title>My Bank</title>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/70a642cd7c.js"></script>
+
+</head>
+
+<body>
+  <br>
+  <div style="margin-left: -55px;">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: Aquamarine;padding: 15px; border-radius: 30px; size: 20px;height: 83px; width: 1230px;">
+        <a class="navbar-brand" routerLink="admin-list">My Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+           
+            <li class="nav-item">
+              <a routerLink='' routerLinkActive="active" class="nav-link">Home</a>
+          </li>
+    
+          <li class="nav-item">
+            <a routerLink="/admin" routerLinkActive="active" class="nav-link" >Admin</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/add-customer2" routerLinkActive="active" class="nav-link">Customer</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/bank-list2" routerLinkActive="active" class="nav-link">Bank</a>
+          </li>
+    
+         
+           
+          
+          
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+      <br>
+
+
+
+<div class="container-fluid">
+<marquee direction="right" behavior="alternate" style="background: linear-gradient(135deg, orange 60%, cyan);;border:White 3px SOLID;padding: 10px;border-radius: 30px" >  
+<h1 style="color:blue">Welcome</h1>
+
+</marquee>
+<div class="row">
+  
+  <div class="col-md-6">
+  <div style="background-color: aquamarine; border: 3px solid orange; margin-left:7rem; margin-top:30px;border-radius: 40px; width: 400px; height: 450px" class="flex-container">
+  <h3 style="margin-left: 110px; border: 3px solid orange; width: 180px; border-radius: 10px;text-align: center;background-color: DeepSkyBlue; margin-top: 20px;">Admin Login</h3><br>
+  <form   style="width:300px; margin-left: 55px">
+    <p  *ngIf="invalid1 == true"  style="color: red; size: 50px">Email or Password is Incorrect !!</p>
+  <div class="form-group">
+    <label for="email1">Email address</label>
+    <input type="email" class="form-control" name="email" id="email"  [(ngModel)]="admin.email" placeholder="Email" required/>
+  </div>
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input type="password" class="form-control" name="password" id="password" [(ngModel)]="admin.password" placeholder="Password" required/>
+  </div>  
+  <br>
+  <button type="submit" class="btn btn-success" style="margin-left: 80px" (click)=checkLogin()>Login</button>&nbsp;
+  <button type="reset" class="btn btn-danger">Reset</button><br><br>
+  <div class="register" style="margin-left: 100px">
+  <a href="add-admin2" routerLinkActive="active" class="btn btn-primary" style="color: white;background-color: #008CBA;padding: 9px 10px;text-align: center;border-radius: 4px 4px 4px 4px">Register</a>
+</div>
+</form>
+  </div>
+  </div>
+  <div class="col-md-6">
+  <div style="background-color: aquamarine; border: 3px solid orange; margin-left:80px;margin-top:30px;border-radius: 40px; width: 400px; height: 450px" class="flex-container">
+  <h3 style="margin-left: 90px; border: 3px solid orange; width: 230px; border-radius: 10px;text-align: center;background-color: DeepSkyBlue;margin-top: 20px;">Customer Login</h3><br>
+  <form    style="width:300px; margin-left: 50px">
+    <p *ngIf="invalid2 == true" style="color: red; size: 50px">Email or Password is Incorrect !!</p>
+  <div class="form-group">
+    <label for="email1">Email address</label>
+    <input type="email" class="form-control" [(ngModel)]="customer.email"  name="cemail" placeholder="Email"/>
+  </div>
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input type="password" class="form-control" [(ngModel)]="customer.password" name="cpassword" placeholder="Password"/>
+  </div>  
+  <br>
+  <button type="submit" class="btn btn-success" style="margin-left: 80px" (click)=customerLogin()>Login</button>&nbsp;
+  <button type="reset" class="btn btn-danger">Reset</button><br><br>
+   <div class="register" style="margin-left: 110px">
+   <a href="add-customer2" class="btn btn-primary" style="color: white;background-color: #008CBA;padding: 9px 10px;text-align: center;border-radius: 4px 4px 4px 4px">Register</a>
+</div>
+</form>
+</div>
+</div>
+  </div>
+</div>
+
+
+</body>
+<br><br><br>
+

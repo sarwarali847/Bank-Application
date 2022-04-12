@@ -1,0 +1,135 @@
+<br>
+<div style="margin-left: -65px;">
+ <nav class="navbar navbar-expand-lg navbar-light " style="background-color: Aquamarine;padding: 15px; border-radius: 30px; size: 100px;height: 83px; width: 1230px;">
+   <a class="navbar-brand" routerLink="/home">My Bank</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+      
+       <li class="nav-item">
+         <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/admin-list" routerLinkActive="active" class="nav-link">Admin</a>
+     </li>
+
+     <li class="nav-item">
+       <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/bank-list" routerLinkActive="active" class="nav-link">Bank</a>
+     </li>
+     <li class="nav-item">
+       <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/customer-list" routerLinkActive="active" class="nav-link">Customer</a>
+     </li>
+
+     <div ngbDropdown class="dropdown">
+ <a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownToggle   class="nav-link" type="button" id="dropdownMenuButton1" aria-expanded="false">
+          Sort Customer
+ </a>
+ <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-name" routerLinkActive="active">By Name</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-dob" routerLinkActive="active">By DOB</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-email" routerLinkActive="active">By Email</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-city" routerLinkActive="active">By City</a></li>
+ </ul>
+</div>
+
+<li class="nav-item">
+  <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/logout" routerLinkActive="active" class="nav-link">Log Out</a>
+</li>
+      
+     
+     
+     </ul>
+     <form class="form-inline my-2 my-lg-0">
+       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+</div>
+
+<br>
+<body> 
+    <div class="col-md-6 offset-md-3">
+        <h3>Add Customer</h3>
+        
+        <form (ngSubmit)="onSubmit()" >
+
+            <div class="form-group">
+                <label>Bank Id</label>
+                <input type="number" class="form-control"  [(ngModel)]="customer.bankBean.bank_id" name="bank_id"/>
+            </div>
+            <div class="form-group">
+                <label>Account Type</label>
+                <input type="text" class="form-control"  [(ngModel)]="customer.account_type" name="account_type"/>
+            </div>
+
+            <div class="form-group">
+                <label>Balance</label>
+                <input type="number" class="form-control"  [(ngModel)]="customer.balance" name="balance"/>
+            </div>
+        
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control"  [(ngModel)]="customer.first_name" name="first_name"/>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control"  [(ngModel)]="customer.last_name" name="last_name"/>
+            </div>
+        
+            
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email"  class="form-control"  [(ngModel)]="customer.email" name="email" required/>
+            
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control"  [(ngModel)]="customer.password" name="password"/>
+            </div>
+
+            <div class="form-group">
+              <label>Adhar No.</label>
+              <input type="text" class="form-control"  maxlength="12" minlength="12" class="form-control" [(ngModel)]="customer.adhar" name="adhar" required/>
+              
+          </div>
+
+          <div class="form-group">
+            <label>Pan No.</label>
+            <input type="text"  title="Enter 10 alphanumeric pan no. !" pattern="\[A-Z]{5}[0-9]{4}[A-Z]{1}" maxlength="10"  class="form-control" [(ngModel)]="customer.pan" name="pan"/>
+        </div>
+
+            <div class="form-group">
+                <label>Phone No.</label>
+                <input type="text"  title="Enter 10 digit number !" pattern="\d{10}" maxlength="10"  class="form-control" [(ngModel)]="customer.phoneno" name="phoneno"/>
+            </div>
+
+          
+
+            <div class="form-group">
+                <label>DOB</label>
+                <input type="date" class="form-control"  [(ngModel)]="customer.dob" name="dob"/>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control"  [(ngModel)]="customer.city" name="city"/>
+            </div>
+
+            <div class="form-group">
+                <label>State
+                </label>
+                <input type="text" class="form-control"  [(ngModel)]="customer.state" name="state"/>
+            </div>
+
+            
+            <button class="btn btn-success" type="submit">Submit</button>&nbsp;
+            <button class="btn btn-danger" type="reset">Reset</button><br><br>
+        
+        </form>
+    
+        </div>
+    
+        

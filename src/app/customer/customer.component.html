@@ -1,0 +1,112 @@
+
+<br>
+<div style="margin-left: -70px;">
+ <nav class="navbar navbar-expand-lg navbar-light " style="background-color: Aquamarine;padding: 15px; border-radius: 30px; size: 100px;height: 83px; width: 1250px;">
+   <a class="navbar-brand" routerLink="/home">My Bank</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+      
+       <li class="nav-item">
+         <a *ngIf="loginService.isCustomerLoggedIn()" routerLink="/customer" routerLinkActive="active" class="nav-link">Customer Section</a>
+     </li>
+
+    
+     
+<li class="nav-item">
+  <a *ngIf="loginService.isCustomerLoggedIn()" routerLink="/logout-customer" routerLinkActive="active" class="nav-link">Log Out</a>
+</li>
+      
+     
+     
+     </ul>
+     <form class="form-inline my-2 my-lg-0">
+       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+</div>
+
+<h3 class="text-center"><h2 style="color: darkblue; font-family:sans-serif;">Welcome {{customer.first_name}}, {{greet}} !!</h2></h3>
+
+<br>
+<div>
+    <button (click)="Update(customer.customer_id)" class="btn btn-warning">Update Account ?</button>&nbsp;
+    <button (click)="Deposit(customer.customer_id)" class="btn btn-outline-primary">Deposit Amount</button>&nbsp;
+    <button (click)="Withdraw(customer.customer_id)" class="btn btn-outline-primary">Withdraw Amount</button>&nbsp;
+    <button (click)="Transfer(customer.customer_id)" class="btn btn-outline-primary">Transfer Amount</button>&nbsp;
+   
+</div>
+<br>
+<div>
+    <button (click)="depositHistory(customer.customer_id)" class="btn btn-outline-primary">Get Deposit History</button>&nbsp;
+    <button (click)="withdrawHistory(customer.customer_id)" class="btn btn-outline-primary">Get Withdraw History</button> &nbsp;
+    <button (click)="transferHistory(customer.customer_id)" class="btn btn-outline-primary">Get Transfer History</button> &nbsp;
+</div>
+<br>
+<div class="flex-container">
+    <div>
+        <label> <b>Customer Id: </b></label> {{customer.customer_id}}
+    </div>
+    <div>
+        <label> <b>Account Type: </b></label> {{customer.account_type}}
+    </div>
+    <div>
+        <label> <b>Bank Name: </b></label> {{customer.bankBean.bank_name}}
+    </div>
+    <div>
+        <label> <b>Bank Branch: </b></label> {{customer.bankBean.branch}}
+    </div>
+    <div>
+        <label> <b>Bank Id: </b></label> {{customer.bankBean.bank_id}}
+    </div>
+    <div>
+        <label> <b>Account No.: </b></label> {{customer.account_no}}
+    </div>
+    <div>
+        <label> <b>Balance: </b></label> {{customer.balance}}
+    </div>
+    <div>
+        <label> <b>First Name: </b></label> {{customer.first_name}}
+    </div>
+    <div>
+        <label> <b>Surname: </b></label> {{customer.last_name}}
+    </div>
+    
+    <div>
+        <label> <b>DOB: </b></label> {{customer.dob}}
+    </div>
+    <div>
+        <label> <b>Email: </b></label> {{customer.email}}
+    </div>
+
+    <div>
+        <label> <b>Password: </b></label> <input disabled type="password" value={{customer.password}} style="border: 0px solid white; width: 80px;"/> 
+    </div>
+
+    <div>
+        <label> <b>Adhar No.: </b></label> {{customer.adhar}}
+    </div>
+
+    <div>
+        <label> <b>Pan No.: </b></label> {{customer.pan}}
+    </div>
+
+    <div>
+        <label> <b>Phone No.: </b></label> {{customer.phoneno}}
+    </div>
+    <div>
+        <label> <b>City: </b></label> {{customer.city}}
+    </div>
+    <div>
+        <label> <b>State: </b></label> {{customer.state}}
+    </div>
+</div>
+<br>
+
+<br><br>
+

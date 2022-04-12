@@ -1,0 +1,81 @@
+<br>
+<div style="margin-left: -65px;">
+ <nav class="navbar navbar-expand-lg navbar-light " style="background-color: Aquamarine;padding: 15px; border-radius: 30px; size: 100px;height: 83px; width: 1250px;">
+   <a class="navbar-brand" routerLink="/home">My Bank</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+      
+       <li class="nav-item">
+         <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/admin-list" routerLinkActive="active" class="nav-link">Admin</a>
+     </li>
+
+     <li class="nav-item">
+       <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/bank-list" routerLinkActive="active" class="nav-link">Bank</a>
+     </li>
+     <li class="nav-item">
+       <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/customer-list" routerLinkActive="active" class="nav-link">Customer</a>
+     </li>
+
+     <div ngbDropdown class="dropdown">
+ <a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownToggle   class="nav-link" type="button" id="dropdownMenuButton1" aria-expanded="false">
+          Sort Customer
+ </a>
+ <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-name" routerLinkActive="active">By Name</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-dob" routerLinkActive="active">By DOB</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-email" routerLinkActive="active">By Email</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-city" routerLinkActive="active">By City</a></li>
+ </ul>
+</div>
+      
+<li class="nav-item">
+  <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/logout" routerLinkActive="active" class="nav-link">Log Out</a>
+</li>
+     
+     </ul>
+     <form class="form-inline my-2 my-lg-0">
+       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+</div>
+
+<br>
+<body> 
+    <div class="col-md-6 offset-md-3">
+        <h3>Add Bank</h3>
+        <form (ngSubmit)="onSubmit()">
+           
+        
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" id="bank_name" [(ngModel)]="bank.bank_name" name="bank_name"/>
+            </div>
+        
+            <div class="form-group">
+                <label>Branch</label>
+                <input type="text" class="form-control" id="branch" [(ngModel)]="bank.branch" name="branch"/>
+            </div>
+
+            <div class="form-group">
+                <label>IFSC</label>
+                <input type="text" class="form-control" id="ifsc_code" [(ngModel)]="bank.ifsc_code" name="ifsc_code"/>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="bank.description" name="description"/>
+            </div>
+        
+        
+            <button class="btn btn-success" type="submit">Submit</button>&nbsp;
+            <button class="btn btn-danger" type="reset">Reset</button><br><br>
+        
+        </form>
+        </div>
+        

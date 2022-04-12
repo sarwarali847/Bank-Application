@@ -1,0 +1,61 @@
+
+<br>
+<div style="margin-left: -70px;">
+ <nav class="navbar navbar-expand-lg navbar-light " style="background-color: Aquamarine;padding: 15px; border-radius: 30px; size: 100px;height: 83px; width: 1250px;">
+   <a class="navbar-brand" routerLink="/home">My Bank</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a *ngIf="loginService.isCustomerLoggedIn()" (click)=CustomerSection() routerLinkActive="active" class="nav-link">Customer Section</a>
+    </li>
+
+    
+
+     
+<li class="nav-item">
+  <a *ngIf="loginService.isCustomerLoggedIn()" routerLink="/logout-customer" routerLinkActive="active" class="nav-link">Log Out</a>
+</li>
+      
+     
+     
+     </ul>
+     <form class="form-inline my-2 my-lg-0">
+       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+</div>
+<br>
+<body> 
+    <div class="col-md-6 offset-md-3">
+        <h3>Deposit Amount</h3>
+        <form (ngSubmit)="onSubmit()">
+          <p *ngIf="balError == true" style="color: red;">Enter correct amount !!</p>
+        
+            <div class="form-group">
+                <label>Customer Id</label>
+                <input disabled type="number" class="form-control" [(ngModel)]="myId" name="customer_id"/>
+            </div>
+        
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" class="form-control"  [(ngModel)]="deposit.deposit_amnt" name="deposit_amnt"/>
+            </div>
+        
+        
+            <div style="text-align: center;">
+              <a *ngIf="loginService.isCustomerLoggedIn()" (click)=CustomerSection() routerLinkActive="active" class="btn btn-warning">Cancel</a>&nbsp;
+              <button class="btn btn-success" type="submit">Submit</button>&nbsp;
+          <br><br>
+            </div>
+        
+        </form>
+        </div>
+        
+

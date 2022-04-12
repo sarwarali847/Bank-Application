@@ -1,0 +1,109 @@
+<br>
+<div style="margin-left: -65px;">
+ <nav class="navbar navbar-expand-lg navbar-light " style="background-color: Aquamarine;padding: 15px; border-radius: 30px; size: 100px;height: 83px; width: 1230px;">
+   <a class="navbar-brand" routerLink="/home">My Bank</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+ 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+      
+       <li class="nav-item">
+         <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/admin-list" routerLinkActive="active" class="nav-link">Admin</a>
+     </li>
+
+     <li class="nav-item">
+       <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/bank-list" routerLinkActive="active" class="nav-link">Bank</a>
+     </li>
+     <li class="nav-item">
+       <a *ngIf="loginService.isAdminLoggedIn()"  routerLink="/customer-list" routerLinkActive="active" class="nav-link">Customer</a>
+     </li>
+
+     <div ngbDropdown class="dropdown">
+ <a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownToggle   class="nav-link" type="button" id="dropdownMenuButton1" aria-expanded="false">
+          Sort Customer
+ </a>
+ <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-name" routerLinkActive="active">By Name</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-dob" routerLinkActive="active">By DOB</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-email" routerLinkActive="active">By Email</a></li>
+   <li><a *ngIf="loginService.isAdminLoggedIn()" ngbDropdownItem routerLink="/sort-by-city" routerLinkActive="active">By City</a></li>
+ </ul>
+</div>
+
+<li class="nav-item">
+  <a *ngIf="loginService.isAdminLoggedIn()" routerLink="/logout" routerLinkActive="active" class="nav-link">Log Out</a>
+</li>
+      
+     
+     
+     </ul>
+     <form class="form-inline my-2 my-lg-0">
+       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     </form>
+   </div>
+ </nav>
+</div>
+
+<br>
+    <a href="add-customer" routerLinkActive="active" class="btn btn-info" style="margin-left: -13px;">Add Customer</a>
+    <body>
+     <div class='container' style="margin-left: -5px;"> 
+            <table class='table table-bordered table-striped' style='background-color:#90EE90;margin-left: -25px; width: 50%;' > 
+                    <thead style="background-color: rgb(127, 127, 226);">
+                        <tr>
+                            <th>Id</th>
+                            <th colspan="3" style="text-align: center;">Bank Details</th>
+                            
+                            <th>Account Type</th>
+                            <th>Account No.</th>
+                           
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            
+                            <th>Phone</th>
+                            <th>DOB</th>
+                            <th>City</th>
+                           
+                            <th colspan="2">Action</th>
+                
+                        </tr>
+                    </thead>
+                
+                    <tbody style="background-color: whitesmoke;">
+                        <tr *ngFor="let customer of customers">
+                            <td>{{customer.customer_id}}</td>
+                    
+                            <td >{{customer.bankBean.bank_name}}</td>
+                            <td>{{customer.bankBean.branch}}</td>
+                            <td >{{customer.bankBean.bank_id}}</td>
+                            <td>{{customer.account_type}}</td>
+                            <td>{{customer.account_no}}</td>
+                            <td>{{customer.first_name}}</td>
+                            <td>{{customer.last_name}}</td>
+                            <td>{{customer.email}}</td>
+                            
+                            <td>{{customer.phoneno}}</td>
+                            <td>{{customer.dob}}</td>
+                            <td>{{customer.city}}</td>
+                            
+                            
+                            
+                            <td>
+                                <button (click)="updateCustomer(customer.customer_id)" class="btn btn-info">Update</button>
+                               <button (click)="deleteCustomer(customer.customer_id)" class="btn btn-danger">Delete</button> 
+                            </td>
+                        
+                        </tr>
+                    </tbody>
+                </table>
+                
+             </div>
+         </body>
+         
+    
+    
+    
